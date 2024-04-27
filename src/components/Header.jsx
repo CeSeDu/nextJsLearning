@@ -24,6 +24,8 @@ function Header() {
     const searchFunc = (e) => {
         if(e.key === "Enter" && keyword.length >= 3){
             router.push(`/search/${keyword}`)
+            setKeyword('');
+
 
         }
     }
@@ -33,7 +35,7 @@ function Header() {
         <div className='bg-amber-600 rounded-lg p-3 text-2xl font-bold'>MovieApp</div>
        </Link>
         <div className='flex flex-1 items-center gap-4 border p-3 rounded-lg'>
-            <input  onKeyDown={searchFunc} onChange={e => setKeyword(e.target.value)} placeholder='Arama Yapınız!' type="text" className='outline-none flex-1 bg-transparent' />
+            <input value={keyword}  onKeyDown={searchFunc} onChange={e => setKeyword(e.target.value)} placeholder='Arama Yapınız!' type="text" className='outline-none flex-1 bg-transparent' />
             <CiSearch  size={22}/>
         </div>
         <ThemeComp/>
